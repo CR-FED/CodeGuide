@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript代码规范 | 前端代码规范</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/CodeGuide/assets/css/styles.da7e0554.css" as="style"><link rel="preload" href="/CodeGuide/assets/js/app.da7e0554.js" as="script"><link rel="preload" href="/CodeGuide/assets/js/4.2b56af48.js" as="script"><link rel="prefetch" href="/CodeGuide/assets/css/1.styles.b05fc641.css"><link rel="prefetch" href="/CodeGuide/assets/css/2.styles.a2bd3099.css"><link rel="prefetch" href="/CodeGuide/assets/js/1.b05fc641.js"><link rel="prefetch" href="/CodeGuide/assets/js/2.a2bd3099.js"><link rel="prefetch" href="/CodeGuide/assets/js/3.b70dacfa.js"><link rel="prefetch" href="/CodeGuide/assets/js/5.dade68dc.js">
+    <link rel="stylesheet" href="/CodeGuide/assets/css/1.styles.b05fc641.css"><link rel="stylesheet" href="/CodeGuide/assets/css/2.styles.a2bd3099.css"><link rel="stylesheet" href="/CodeGuide/assets/css/styles.da7e0554.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/CodeGuide/" class="home-link router-link-active"><!----> <span class="site-name">前端代码规范</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/CodeGuide/" class="sidebar-link">目录</a></li><li><a href="/CodeGuide/JavaScript.html" class="active sidebar-link">JavaScript代码规范</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#命名" class="sidebar-link">命名</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#变量" class="sidebar-link">变量</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#类、构造函数" class="sidebar-link">类、构造函数</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#属性" class="sidebar-link">属性</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#函数" class="sidebar-link">函数</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#符号" class="sidebar-link">符号</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#运算符" class="sidebar-link">运算符</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#语句" class="sidebar-link">语句</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#异常" class="sidebar-link">异常</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#模块" class="sidebar-link">模块</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#正则表达式" class="sidebar-link">正则表达式</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#空格" class="sidebar-link">空格</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#空行" class="sidebar-link">空行</a></li><li class="sidebar-sub-header"><a href="/CodeGuide/JavaScript.html#杂项" class="sidebar-link">杂项</a></li></ul></li><li><a href="/CodeGuide/CSS.html" class="sidebar-link">CSS代码规范</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="javascript代码规范"><a href="#javascript代码规范" aria-hidden="true" class="header-anchor">#</a> JavaScript代码规范</h1> <p>本文档基于<a href="https://standardjs.com/rules.html" target="_blank" rel="noopener noreferrer">JavaScript Standard Style<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>进行编写，其中<code>+</code>为追加规则。</p> <h2 id="命名"><a href="#命名" aria-hidden="true" class="header-anchor">#</a> 命名</h2> <ul><li><p>变量名和函数名使用小驼峰命名法 <code>camelcase</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> Count <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">const</span> job_title <span class="token operator">=</span> <span class="token string">'front-end engineer'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">const</span> jobTitle <span class="token operator">=</span> <span class="token string">'front-end engineer'</span>
+</code></pre></div></li> <li><p>类名使用大驼峰（帕斯卡）命名法 <code>+</code> <code>[no-rule]</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">animal</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">whiteBear</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">WhiteBear</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>配置型常量名使用大写下划线命名法 <code>+</code> <code>[no-rule]</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token string">'test'</span>
+<span class="token keyword">const</span> rootPath <span class="token operator">=</span> <span class="token string">'/src'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> <span class="token constant">ENV</span> <span class="token operator">=</span> <span class="token string">'test'</span>
+<span class="token keyword">const</span> <span class="token constant">ROOT_PATH</span> <span class="token operator">=</span> <span class="token string">'/src'</span>
+</code></pre></div></li></ul> <h2 id="变量"><a href="#变量" aria-hidden="true" class="header-anchor">#</a> 变量</h2> <ul><li><p>禁止使用var定义变量，使用const、let代替 <code>+</code> <code>no-var</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">5</span>
+count <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span>
+
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">5</span>
+count <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span>
+
+<span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+</code></pre></div></li> <li><p>优先使用const定义变量 <code>+</code> <code>prefer-const</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">3</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">3</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> i <span class="token keyword">of</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>一次单独声明一个变量 <code>one-var</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token string">'test'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">let</span> j
+<span class="token keyword">let</span> k <span class="token operator">=</span> <span class="token string">'test'</span>
+</code></pre></div></li> <li><p>禁止重复声明变量 <code>no-redeclare</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">10</span>
+</code></pre></div></li> <li><p>禁止使用未声明变量 <code>no-undef</code></p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token comment">// Bad</span>
+  <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span>
+  b <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">10</span>
+
+  <span class="token comment">// Good</span>
+  <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span>
+  <span class="token keyword">const</span> b <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">10</span>
+</code></pre></div></li> <li><p>禁止对const定义的变量重新赋值 <code>no-const-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">5</span>
+</code></pre></div></li> <li><p>禁止同作用域内重复变量名 <code>+</code> <code>no-shadow</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止定义冗余变量 <code>no-unused-vars</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> i <span class="token operator">=</span> <span class="token number">1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止对声明过的函数重新赋值 <code>no-func-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">bar</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+foo <span class="token operator">=</span> bar
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> <span class="token function-variable function">bar</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+foo <span class="token operator">=</span> bar
+</code></pre></div></li> <li><p>禁止对全局只读对象重新赋值 <code>no-global-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+window <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止对类名重新赋值 <code>no-class-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+Dog <span class="token operator">=</span> <span class="token string">'Fido'</span>
+</code></pre></div></li> <li><p>禁止解构空值 <code>no-empty-pattern</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token operator">=</span> response
+</code></pre></div></li> <li><p>禁止更改关键字的值 <code>no-shadow-restricted-names</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+undefined <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">function</span> <span class="token function">NaN</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Object</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 undefined 来初始化变量 <code>no-undef-init</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> name <span class="token operator">=</span> undefined
+name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> name
+name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+</code></pre></div></li> <li><p>禁止将变量赋值给自己 <code>no-self-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+name <span class="token operator">=</span> name
+</code></pre></div></li> <li><p>禁止将变量与自己进行比较操作 <code>no-self-compare</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>score <span class="token operator">===</span> score<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="类、构造函数"><a href="#类、构造函数" aria-hidden="true" class="header-anchor">#</a> 类、构造函数</h2> <ul><li><p>构造函数要以大写字母开头 <code>new-cap</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">animal</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">Animal</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>无参的构造函数调用时要带上括号 <code>new-parens</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>new 创建对象实例后需要赋值给变量 <code>no-new</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>子类的构造函数中一定要调用 super <code>constructor-super</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>legs <span class="token operator">=</span> <span class="token number">4</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>legs <span class="token operator">=</span> <span class="token number">4</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>子类的构造函数中使用 this 前请确保 super() 已调用 <code>no-this-before-super</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>legs <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>legs <span class="token operator">=</span> <span class="token number">4</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止多余的构造函数 <code>no-useless-constructor</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用Array构造函数 <code>no-array-constructor</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+</code></pre></div></li> <li><p>禁止使用 Object 构造函数器 <code>no-new-object</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 Symbol 构造函数器 <code>no-new-symbol</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止使用 Function 构造函数 <code>no-new-func</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> sum <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'return a + b'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用基础类型构造函数 <code>no-new-wrappers</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span><span class="token number">233</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> bool <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Boolean</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'hello'</span>
+<span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token number">233</span>
+<span class="token keyword">const</span> bool <span class="token operator">=</span> <span class="token boolean">false</span>
+</code></pre></div></li></ul> <h2 id="属性"><a href="#属性" aria-hidden="true" class="header-anchor">#</a> 属性</h2> <ul><li><p>对象中定义了存值器，一定要对应的定义取值器 <code>accessor-pairs</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">set</span> <span class="token function">name</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_name <span class="token operator">=</span> value
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">set</span> <span class="token function">name</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_name <span class="token operator">=</span> value
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">get</span> <span class="token function">name</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>对象字面量中不要定义重复的属性 <code>no-dupe-keys</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tim'</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>对象属性换行时使用统一风格 <code>object-property-newline</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+  job<span class="token punctuation">:</span> <span class="token string">'developer'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+  age<span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+  job<span class="token punctuation">:</span> <span class="token string">'developer'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span> job<span class="token punctuation">:</span> <span class="token string">'developer'</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>避免使用不必要的计算值作对象属性 <code>no-useless-computed-key</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token string">'Tom'</span> <span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'Tom'</span> <span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+</code></pre></div></li></ul> <h2 id="函数"><a href="#函数" aria-hidden="true" class="header-anchor">#</a> 函数</h2> <ul><li><p>禁止函数多余绑定 <code>no-extra-bind</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">getName</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">'Steve'</span>
+<span class="token punctuation">}</span>
+
+getName<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">getName</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name
+<span class="token punctuation">}</span>
+
+getName<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止不必要的嵌套代码块 <code>no-lone-blocks</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>自调用匿名函数 (IIFEs) 使用括号包裹 <code>wrap-iife</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止不必要的 .call() 和 .apply() <code>no-useless-call</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+
+sum<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre></div></li></ul> <h2 id="符号"><a href="#符号" aria-hidden="true" class="header-anchor">#</a> 符号</h2> <ul><li><p>不允许行末分号 <code>semi</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Good</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>字符串使用单引号 <code>quotes</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token string">&quot;&lt;div class=\&quot;box\&quot;&gt;&lt;/div&gt;&quot;</span>
+
+<span class="token comment">// Good</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token string">'&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;'</span>
+</code></pre></div></li> <li><p>禁止多余的行末逗号 <code>comma-dangle</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止逗号出现在行首 <code>comma-style</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span>
+  <span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">23</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+  age<span class="token punctuation">:</span> <span class="token number">23</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>点号操作符须与属性需在同一行 <code>dot-location</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+arr<span class="token punctuation">.</span>
+  <span class="token function">filter</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span><span class="token punctuation">.</span>
+  <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+arr
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>避免使用逗号操作符 <code>no-sequences</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">!</span><span class="token operator">!</span>test<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>b <span class="token operator">=</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> a <span class="token operator">&amp;&amp;</span> a <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止多余的括号 <code>no-extra-parens</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">3</span>
+<span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">5</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> a <span class="token operator">*</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token number">3</span>
+<span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token keyword">typeof</span> a
+<span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="运算符"><a href="#运算符" aria-hidden="true" class="header-anchor">#</a> 运算符</h2> <ul><li><p>禁止运算符后断行 <code>operator-linebreak</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token string">'The best preparation '</span> <span class="token operator">+</span>
+  <span class="token string">'for tomorrow is doing '</span> <span class="token operator">+</span>
+  <span class="token string">'your best today'</span>
+
+<span class="token keyword">const</span> b <span class="token operator">=</span> name<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">5</span> <span class="token operator">&amp;&amp;</span>
+  age <span class="token operator">&gt;</span> <span class="token number">18</span> <span class="token operator">&amp;&amp;</span>
+  <span class="token operator">!</span><span class="token operator">!</span>job
+
+<span class="token keyword">const</span> c <span class="token operator">=</span> env <span class="token operator">===</span> <span class="token string">'development'</span> <span class="token operator">?</span>
+  <span class="token string">'localhost'</span> <span class="token punctuation">:</span>
+  <span class="token string">'www.api.com'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token string">'The best preparation '</span>
+  <span class="token operator">+</span> <span class="token string">'for tomorrow is doing '</span>
+  <span class="token operator">+</span> <span class="token string">'your best today'</span>
+
+<span class="token keyword">const</span> b <span class="token operator">=</span> name<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">5</span>
+  <span class="token operator">&amp;&amp;</span> age <span class="token operator">&gt;</span> <span class="token number">18</span> 
+  <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token operator">!</span>job
+
+<span class="token keyword">const</span> c <span class="token operator">=</span> env <span class="token operator">===</span> <span class="token string">'development'</span>
+  <span class="token operator">?</span> <span class="token string">'localhost'</span>
+  <span class="token punctuation">:</span> <span class="token string">'www.api.com'</span>
+</code></pre></div></li> <li><p>始终使用===代替== <code>eqeqeq</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">==</span> <span class="token string">'Tom'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">===</span> <span class="token string">'Tom'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>避免不必要的布尔转换 <code>no-extra-boolean-cast</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>避免不必要的三元表达式 <code>no-unneeded-ternary</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> score <span class="token operator">=</span> value <span class="token operator">?</span> value <span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> score <span class="token operator">=</span> value <span class="token operator">||</span> <span class="token number">0</span>
+</code></pre></div></li> <li><p>关系运算符的左值不要做取反操作 <code>no-unsafe-negation</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Animal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>key <span class="token keyword">in</span> obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Animal</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止非法的typeof比较操作 <code>valid-typeof</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">typeof</span> name <span class="token operator">===</span> <span class="token string">'undefimed'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">typeof</span> name <span class="token operator">===</span> <span class="token string">'undefined'</span>
+</code></pre></div></li></ul> <h2 id="语句"><a href="#语句" aria-hidden="true" class="header-anchor">#</a> 语句</h2> <ul><li><p>if、else关键字与花括号同行 <code>brace-style</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>多行代码块中花括号不能省略 <code>curly</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span>
+  bar<span class="token operator">--</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  bar<span class="token operator">--</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>避免使用常量作为条件表达式的条件，循环语句除外 <code>no-constant-condition</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>循环语句中必须更新循环变量 <code>no-unmodified-loop-condition</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>switch语句中不要定义冗余的case分支 <code>no-duplicate-case</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token comment">// ...</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>switch 一定要使用 break 来将条件分支正常中断 <code>no-fallthrough</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">break</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>finally 代码块中不要再改变程序执行流程 <code>no-unsafe-finally</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token number">42</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用Yoda条件语句 <code>yoda</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">42</span> <span class="token operator">===</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">===</span> <span class="token number">42</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>条件语句中使用赋值必须用括号包裹 <code>no-cond-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>m <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>m <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="异常"><a href="#异常" aria-hidden="true" class="header-anchor">#</a> 异常</h2> <ul><li><p>必须处理回调中error参数 <code>handle-callback-err</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'done'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'done'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>catch中不要对错误重新赋值 <code>no-ex-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  error <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止throw抛出字符串，应抛出Error对象 <code>no-throw-literal</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">throw</span> <span class="token string">'message'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止Promise的reject函数中字符串，应传入Error对象 <code>+</code> <code>prefer-promise-reject-errors</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> promise2 <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> promise2 <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></li></ul> <h2 id="模块"><a href="#模块" aria-hidden="true" class="header-anchor">#</a> 模块</h2> <ul><li><p>同一模块有多个导入时一次性写完 <code>no-duplicate-imports</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./utils'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./utils'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./utils'</span>
+</code></pre></div></li> <li><p>禁止使用 new require <code>no-new-require</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>使用 __dirname 和 __filename 时避免使用字符串拼接 <code>no-path-concat</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> pathToFile <span class="token operator">=</span> __dirname <span class="token operator">+</span> <span class="token string">'/app.js'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">import</span> path <span class="token keyword">from</span> <span class="token string">'path'</span>
+
+<span class="token keyword">const</span> pathToFile <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'app.js'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>import、export 和解构操作中，禁止赋值到同名变量 <code>no-useless-rename</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> config <span class="token keyword">as</span> config <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./config'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> config <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./config'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> config <span class="token keyword">as</span> appConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./config'</span>
+</code></pre></div></li></ul> <h2 id="正则表达式"><a href="#正则表达式" aria-hidden="true" class="header-anchor">#</a> 正则表达式</h2> <ul><li><p>禁止正则中使用控制符 <code>no-control-regex</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> pattern <span class="token operator">=</span> <span class="token regex">/\x1f/</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> pattern <span class="token operator">=</span> <span class="token regex">/\x20/</span>
+</code></pre></div></li> <li><p>禁止正则中使用空字符 <code>no-empty-character-class</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> regex <span class="token operator">=</span> <span class="token operator">/</span><span class="token operator">^</span>abc<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">/</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> regex <span class="token operator">=</span> <span class="token regex">/^abc/</span>
+</code></pre></div></li> <li><p>禁止非法的正则表达式字符串 <code>no-invalid-regexp</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> regex <span class="token operator">=</span> <span class="token function">RegExp</span><span class="token punctuation">(</span><span class="token string">'[a-z'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> regex <span class="token operator">=</span> <span class="token function">RegExp</span><span class="token punctuation">(</span><span class="token string">'[a-z]'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止正则中使用多个空格 <code>no-regex-spaces</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> regexp <span class="token operator">=</span> <span class="token regex">/test   value/</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> regexp <span class="token operator">=</span> <span class="token regex">/test {3}value/</span>
+</code></pre></div></li></ul> <h2 id="空格"><a href="#空格" aria-hidden="true" class="header-anchor">#</a> 空格</h2> <ul><li><p>两个空格作为缩进 <code>indent</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> b <span class="token operator">+</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">1</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> b <span class="token operator">+</span> <span class="token number">10</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止空格和制表符混用 <code>no-mixed-spaces-and-tabs</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    	<span class="token keyword">return</span> b <span class="token operator">+</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> b <span class="token operator">+</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用制表符 <code>no-tabs</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>关键字后面加空格 <code>keyword-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>函数声明时，标识符和括号间加空格 <code>space-before-function-paren</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>函数调用时，标识符与括号间不留空格 <code>func-call-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>运算符前后加空格 <code>space-infix-ops</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+a<span class="token operator">+</span>b
+b <span class="token operator">+</span>c
+c<span class="token operator">+</span>     d
+z<span class="token operator">?</span>x<span class="token punctuation">:</span>y
+e<span class="token operator">=</span>   f<span class="token operator">*</span>g
+h<span class="token operator">=</span>i<span class="token operator">++</span>
+
+<span class="token comment">// Good</span>
+a <span class="token operator">+</span> b
+b <span class="token operator">+</span> c
+c <span class="token operator">+</span> d
+z <span class="token operator">?</span> x <span class="token punctuation">:</span> y
+e <span class="token operator">=</span> f <span class="token operator">*</span> g
+h <span class="token operator">=</span> i<span class="token operator">++</span>
+</code></pre></div></li> <li><p>逗号后面加空格 <code>comma-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">,</span>b<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>空格放在分号后面而不是前面 <code>semi-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止行末多余空格 <code>no-trailing-spaces</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token comment">/*space*/</span><span class="token comment">/*space*/</span><span class="token comment">/*space*/</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b
+</code></pre></div></li> <li><p>键值对当中冒号与值之间要加空格 <code>key-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> key<span class="token punctuation">:</span><span class="token string">'value'</span><span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> key <span class="token punctuation">:</span><span class="token string">'value'</span><span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> key <span class="token punctuation">:</span> <span class="token string">'value'</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> key<span class="token punctuation">:</span> <span class="token string">'value'</span><span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止调用属性时前面加空格 <code>no-whitespace-before-property</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+person <span class="token punctuation">.</span>name
+
+<span class="token comment">// Good</span>
+person<span class="token punctuation">.</span>name
+</code></pre></div></li> <li><p>除了缩进，禁止使用多个空格 <code>no-multi-spaces</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> id <span class="token operator">=</span>      <span class="token number">1234</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token number">1234</span>
+
+</code></pre></div></li> <li><p>注释首尾留空格 <code>spaced-comment</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token comment">//comment</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token comment">/*comment*/</span>
+
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span> <span class="token comment">// comment</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">5</span> <span class="token comment">/* comment */</span>
+</code></pre></div></li> <li><p>禁止使用非法的空白符 <code>no-irregular-whitespace</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> foo\<span class="token function">u2000</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>  
+</code></pre></div></li> <li><p>禁止展开运算符与它的表达式间的空格 <code>rest-spread-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span> obj <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>obj <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>代码块前加空格 <code>space-before-blocks</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isAdmin<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isAdmin<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>单行代码块花括号之间加空格 <code>block-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>圆括号间不留空格 <code>space-in-parens</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> total <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">8</span> <span class="token punctuation">)</span> <span class="token operator">*</span><span class="token number">2</span>
+<span class="token function">sum</span><span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token punctuation">)</span>
+
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> total <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">*</span><span class="token number">2</span>
+<span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+</code></pre></div></li> <li><p>一元运算符后加空格 <code>space-unary-ops</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">typeof</span><span class="token operator">!</span>foo
+<span class="token keyword">delete</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>bar<span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">typeof</span> <span class="token operator">!</span>foo
+<span class="token keyword">delete</span> foo<span class="token punctuation">.</span>bar
+</code></pre></div></li> <li><p>yield * 中的 * 前后都要有空格 <code>yield-star-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token operator">*</span><span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token operator">*</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token operator">*</span> <span class="token function">foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token operator">*</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>模板字符串花括号间不加空格 <code>template-curly-spacing</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Hello, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> name <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Hello, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+</code></pre></div></li></ul> <h2 id="空行"><a href="#空行" aria-hidden="true" class="header-anchor">#</a> 空行</h2> <ul><li><p>禁止连续多行空行 <code>no-multiple-empty-lines</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token string">'hello world'</span>
+
+
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token string">'hello world'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止代码块中多余空行 <code>padded-blocks</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>文件末尾留一空行 <code>eol-last</code></p></li> <li><p>类中的属性用空行隔开 <code>+</code> <code>lines-between-class-members</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="杂项"><a href="#杂项" aria-hidden="true" class="header-anchor">#</a> 杂项</h2> <ul><li><p>禁止函数定义冗余的参数 <code>no-dupe-args</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止类中定义冗余的属性 <code>no-dupe-class-members</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">{</span>
+  <span class="token function">bark</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token function">bark</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token punctuation">{</span>
+  <span class="token function">bark</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 eval() <code>no-eval</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'alert(&quot;hello&quot;)'</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>避免隐式的 eval() <code>no-implied-eval</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'alert(&quot;Hello world&quot;)'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Good</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Hello world'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止扩展原生对象 <code>no-extend-native</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">21</span>
+</code></pre></div></li> <li><p>禁止省去小数点前面的0 <code>no-floating-decimal</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> discount <span class="token operator">=</span> <span class="token number">.5</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> discount <span class="token operator">=</span> <span class="token number">0.5</span>
+</code></pre></div></li> <li><p>禁止在嵌套的代码块中再定义函数 <code>no-inner-declarations</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>authenticated<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">setAuthUser</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止对变量使用 delete 操作 <code>no-delete-var</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Tom'</span>
+
+<span class="token keyword">delete</span> name
+</code></pre></div></li> <li><p>禁止定义与label同名变量 <code>no-label-var</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> score <span class="token operator">=</span> <span class="token number">100</span>
+
+<span class="token keyword">function</span> <span class="token function">game</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  score<span class="token punctuation">:</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    score <span class="token operator">-=</span> <span class="token number">10</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>score <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">continue</span> score
+    <span class="token keyword">break</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用label语句 <code>no-labels</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+label<span class="token punctuation">:</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">break</span> label
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用多行字符串 <code>no-multi-str</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">'Hello \
+  world'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> message <span class="token string">'Hello '</span>
+  <span class="token operator">+</span> <span class="token string">'world'</span>
+</code></pre></div></li> <li><p>禁止不合理的多行语句 <code>no-unexpected-multiline</code></p> <blockquote><p>禁止使用<code>[ ( \</code> + * / - , .`开头</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'ok'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止全局对象作为函数调用 <code>no-obj-calls</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> math <span class="token operator">=</span> <span class="token function">Math</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>禁止使用八进制字面量 <code>no-octal</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token number">042</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token string">'042'</span>
+</code></pre></div></li> <li><p>禁止字符串字面量使用八进制转义字符 <code>no-octal-escape</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> copyright <span class="token operator">=</span> <span class="token string">'Copyright \251'</span>
+</code></pre></div></li> <li><p>禁止使用__proto__，用 getPrototypeOf 来替代 <code>no-proto</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> obj<span class="token punctuation">.</span>__proto__
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>return 语句中的赋值必需用括号包裹 <code>no-return-assign</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> result
+  <span class="token keyword">return</span> result <span class="token operator">=</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> result
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>result <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用稀疏数组 <code>no-sparse-arrays</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">]</span>
+</code></pre></div></li> <li><p>正确使用 ES6 中的字符串模板 <code>no-template-curly-in-string</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">'Hello ${name}'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+</code></pre></div></li> <li><p>禁止不可触及的代码 <code>no-unreachable</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">doSomething</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'never called'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止不必要的字符串转义 <code>no-useless-escape</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">'Hell\o'</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">'Hello'</span>
+</code></pre></div></li> <li><p>禁止使用NaN作判断，使用isNaN函数代替 <code>use-isnan</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>price <span class="token operator">===</span> <span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 with <code>no-with</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">with</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 arguments.callee 和 arguments.caller <code>no-caller</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+  arguments<span class="token punctuation">.</span><span class="token function">callee</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Good</span>
+<span class="token keyword">function</span> <span class="token function">foo</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+  <span class="token function">foo</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 debugger <code>no-debugger</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+<span class="token keyword">function</span> <span class="token function">sum</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">debugger</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>禁止使用 <strong>iterator</strong> <code>no-iterator</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Bad</span>
+Foo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">__iterator__</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div></li></ul></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/CodeGuide/" class="prev router-link-active">
+          目录
+        </a></span> <span class="next"><a href="/CodeGuide/CSS.html">
+          CSS代码规范
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/CodeGuide/assets/js/4.2b56af48.js" defer></script><script src="/CodeGuide/assets/js/app.da7e0554.js" defer></script>
+  </body>
+</html>
